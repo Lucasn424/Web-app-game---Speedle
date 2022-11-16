@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    </style>
+
+
+    <title>Speedle</title>
+    <link rel="stylesheet" href="default.css"/>
+    <link rel="icon" href="./assets/Speedle.png"> 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+
+
+</head>
+
+
+
+
+    <body>
+
+        <div class="game-container">
+            <div class="title-container">
+                <h1 id = "title-look"> Speedle </h1>
+            </div>
+            <div style="z-index:100; position: fixed;" class="message-container"></div>
+            <div class="tile-container"></div>
+            <div class="key-container"></div>
+        </div>
+
+        <script type="module" src="main.js"></script>
+
+
+
+
+        <div id="mydiv">  <!-- everything in the div below is situatied in the movable menu-->
+            <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+            <div id="mydivheader">Menu<br><span id="secondText">click, hold, and drag to move</span></div>
+            <p></p>
+            
+            <div class="popup" onclick="myFunction()"><span id="gameInfo">Game Info</span>
+                <span class="popuptext" id="myPopup"> This game takes the base gameplay of wordle and incorperates time into it.<br><br>
+                Guess the SPEEDLE in six tries.<br><br>
+                Each guess must be a valid five-letter word. Hit the enter button to submit. After each guess, the color of the tiles will change to show how close your guess was to the word.
+                Check the colour blind slider and look at game info again to see new colours.<br><br>
+                <span id="wordGrey">Grey</span> signifies the letter is not in the word in any spot<br><br>
+                <span id="wordYellow">Yellow</span> signifies the letter is in the word but in the wrong spot.<br><br>
+                <span id="wordGreen">Green</span> signifies the letter is in the word and in the correct spot.<br><br>
+                The faster you finish the game and the less guesses you get, the more points. The maximum points is 
+                2000 points. If you win you might get a slight suprise 🎉 </span>
+              </div>
+    
+            <script>
+                // When the user clicks on <div>, open the popup
+                function myFunction() {
+                  var popup = document.getElementById("myPopup");
+                  popup.classList.toggle("show");
+                }
+            </script>
+            
+            <p></p>
+            
+            <input id = "New-Game" type="button" value="New Game" onClick="location.href=location.href">
+            
+            <h3><time><span id="stopWatch">00:00:00</span></time></h3> 
+
+            
+
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+              </label>
+              <em>&nbsp;&nbsp;&nbsp;<span id="lightMode">Enable Light Mode</span></em>
+            </div>
+            <p></p>
+            <div class="colour-switch-wrapper">
+                <label class="colour-switch" for="checkboxColour">
+                    <input type="checkbox" id="checkboxColour" />
+                    <div class="sliderColour round"></div>
+                </label>
+                <em>&nbsp;&nbsp;&nbsp;<span id="blindMode">Colour Blind Mode</span></em>
+            </div>
+            <p></p>
+            <a href="/docs/" target="_blank" rel="noopener noreferrer" ><span id="API">API Documentation</span></a>
+            <p></p>
+        </div>
+        
+
+        <div id="mydiv2">  
+            <div id="mydivheader2">High Scores<br><span id="secondText">click, hold, and drag to move</span></div>
+            <p></p>
+            <ol id= "highScores">
+                <li>&nbsp</li>
+                <li>&nbsp</li> 
+                <li>&nbsp</li> 
+                <li>&nbsp</li> 
+                <li>&nbsp</li> 
+                <li>&nbsp</li> 
+                <li>&nbsp</li> 
+                <li>&nbsp</li> 
+                <li>&nbsp</li> 
+                <li>&nbsp</li>     
+            </ol>
+    
+            <p></p>
+
+        </div>
+
+
+
+    </body>
+
+
+</html>

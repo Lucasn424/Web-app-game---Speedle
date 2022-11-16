@@ -1,0 +1,460 @@
+:root {
+
+--primary-color: #9A97F3;
+--secondary-color: #818cab;
+--font-color: #e1e1ff;
+--bg-color: #161625;
+--heading-color: #818cab;
+--grey-flip-colour: #3a3a3c;
+--key-container-colour: #616161;
+--yellow-flip-color: #b59f3a;
+--green-flip-color: #538d4e;
+--title-font-colour:#285ada;
+--menu-box-colour: #1d1d30;
+--slider-colour: #66bb6a;
+
+}
+
+[data-theme="light"] {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #343434;
+    --bg-color: #fff;
+    --heading-color: #292922;
+    --grey-flip-colour: #8f8f8f;
+    --key-container-colour: #bbbbbb;
+    --title-font-colour:#1e4ab8;
+    --menu-box-colour: #e6e6e6;
+}
+
+[colour-theme="blind"] {
+    --yellow-flip-color: #5b99b8;
+    --green-flip-color: #e8873d;
+    --slider-colour: #e8873d;
+
+}
+
+@font-face
+{
+    font-family: "FasterOne";
+    src: url("./assets/FasterOne-Regular.ttf");
+    /* Licence: ./assets/OFL.txt */
+}
+
+.title-container {
+    text-align: center;
+    width: 600px;
+    border-bottom: solid 1px #3a3a3c;
+
+}
+
+#title-look {
+    font-family: "FasterOne";
+    font-size: 30pt;
+    color: var(--title-font-colour);
+    /* -webkit-text-stroke: 0.05px #fff; */
+
+}
+
+* {
+    color: var(--font-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+/* #New-Game {
+    height: 30px;
+    width: 150px;
+    background-color: #b8bbbb;
+    font-family: "FasterOne";
+    font-size: 12pt;
+    border-radius: 34px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    color: rgb(139, 13, 13);
+} */
+
+#New-Game {
+  height: 35px;
+  width: 160px;
+  background-color: #b8bbbb;
+  border-radius: 34px;
+  font-family: "FasterOne";
+  font-size: 12pt;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  border: none;
+  color: rgb(139, 13, 13);
+  box-shadow: 0 5px 0 #878888;
+  /* transition: transfrom 0.1s ease-out; */
+}
+
+#New-Game:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.game-container {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tile-container {
+    width: 330px;
+    margin-bottom: 10px;
+
+}
+
+.key-container {
+    width: 510px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.key-container button {
+    width: 43px;
+    height: 58px;
+    border-radius: 4px;
+    border: none;
+    background-color:var(--key-container-colour);
+    margin: 4px;
+    font-size: 13pt;
+}
+
+.key-container button:nth-child(11) {
+    margin-left: 30px;
+}
+
+.key-container button:nth-child(20),
+.key-container button:nth-child(28) {
+    width: 68px;
+}
+
+.tile-container div {
+    display: flex;
+}
+
+.tile-container .tile {
+    width: 62px;
+    height: 62px;
+    border: 2px solid#3a3a3c;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    font-weight: bold;
+    font-size: 24pt;
+}
+
+.message-container {
+    height: 30px;
+}
+
+.message-container p {
+   position: relative;
+   top: 280px; 
+    background-color: #1e4ab8;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+}
+
+.tile.flip {
+    animation: 0.5s linear flipping;
+}
+
+@keyframes flipping {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+
+.grey-overlay {
+    background-color: var(--grey-flip-colour) !important;
+    border:none !important;
+}
+.yellow-overlay {
+    background-color: var(--yellow-flip-color) !important;
+    border:none !important;
+}
+
+.green-overlay {
+    background-color: var(--green-flip-color) !important;
+    border:none !important;
+}
+
+
+/* ------------------------------------------------ */
+/* Colour blind mode toggle switch */
+
+.colour-switch-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 17px;
+
+  }
+  .colour-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  
+  .colour-switch input {
+    display:none;
+  }
+
+  .sliderColour {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  
+  .sliderColour:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  
+  input:checked + .sliderColour {
+    background-color: var(--slider-colour);
+  }
+  
+  input:checked + .sliderColour:before {
+    transform: translateX(26px);
+  }
+  
+  .sliderColour.round {
+    border-radius: 34px;
+  }
+  
+  .sliderColour.round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+
+
+/* ------------------------------------------------- */
+/* Dark and light mode toggle switch */
+
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 17px;
+
+  }
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  
+  .theme-switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--slider-colour);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/* ------------------------- */
+/* Popup window for the Game info box */
+
+.popup {
+    position:relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .popup .popuptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 155%;
+    left: -125%;
+    margin-left: -125px;
+  }
+  
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: -2.5%;
+    transform: scaleY(-1);
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+#gameInfo {
+  text-decoration: underline;
+}
+
+/* ------------------------------------ */
+/* Movable menu to move to any location on the screen */
+  #mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: var(--menu-box-colour);
+    text-align: center;
+    border-radius: 32px;
+    width: 250px;
+    border: 5px solid #1e4ab8;
+    left: 80px;
+    top: 130px;
+  }
+  
+  #mydivheader {
+    font-family: "fasterOne";
+    font-size: 15pt;
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #1e4ab8;
+    color: #fff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    
+  }
+
+  #secondText {
+    font-size: 10pt;
+    color: #fff;
+  }
+
+  #wordYellow {
+    color: var(--yellow-flip-color);
+    font-size: 18pt;
+  }
+
+  #wordGreen {
+    color: var(--green-flip-color);
+    font-size: 18pt;
+  }
+
+  #wordGrey {
+    color:#2b2b2b;
+    font-size: 18pt;
+  }
+
+  #mydiv2 {
+    position: absolute;
+    z-index: 8;
+    background-color: var(--menu-box-colour);
+    text-align: center;
+    border-radius: 32px;
+    width: 250px;
+    border: 5px solid #1e4ab8;
+    left: 1120px;
+    top: 130px;
+  }
+  
+  #mydivheader2 {
+    font-family: "fasterOne";
+    font-size: 15pt;
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #1e4ab8;
+    color: #fff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    
+  }
+
+  #high_scores {
+    text-align: left;
+  }
